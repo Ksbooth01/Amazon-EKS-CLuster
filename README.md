@@ -53,15 +53,15 @@ https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-10-29/amazon-e
 |US West (Oregon) (us-west-2)	 | ami-04f0f3d381d07e0b6 |
 US West (N. California) (us-west-1)	| ami-002e04ca6d86d255e |
 
-|Kubernetes version 1.17.11 |
+
+
+</details>
+
+ |Kubernetes version 1.17.11 |
 |:-|:--:|
 |Region	|x86- AMI ID	 |
 |US East (Ohio) (us-east-2)  | ami-0135903686f192ffe	|
 |US East (N. Virginia) (us-east-1) |	ami-07250434f8a7bc5f1 |
 |US West (Oregon) (us-west-2)	 | ami-0c62450bce8f4f57f |
-US West (N. California) (us-west-1)	| ami-05bfd72ad17ebedb8 |
-
-</details>
-
-  
+US West (N. California) (us-west-1)	| ami-05bfd72ad17ebedb8 | 
 
