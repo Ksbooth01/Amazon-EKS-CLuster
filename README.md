@@ -4,10 +4,10 @@ What this builds...
 
 
 ## Main Steps
-1 - Build a **VPC** (no cost item)
-2 - Install **Kubectl** (no cost/low cost item)
-3 - Build a Amazon EKS Cluster ($0.20/hr)
-4 - Create Worker Nodes
+* 1 - Build a **VPC** (no cost item)
+* 2 - Install **Kubectl** (no cost/low cost item)
+* 3 - Build a Amazon EKS Cluster ($0.20/hr)
+* 4 - Create Worker Nodes
 
 
 
