@@ -34,15 +34,14 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 * Choose Roles, then ``` Create role ``` .
 * Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions ``` .
 * Choose  ``` Next: Tags ```  ``` Next: Review ``` 
-* Enter **Role name** \<Your EKS Role Name\>  and then ``` Create role ```
-  
-  
-* Choose \<Your EKS Role Name\>
+* Enter **Role name** \<Your EKS Role Name\>  and then ``` Create role ``
+*
+* On tole Rolse main page Choose the newly created \<Your EKS Role Name\>
 * Choose ``` Attach Policies ```
 Add permissions to \<**Your EKS Role Name**\>
 * Filter policies for  ``` AmazonEKSServicePolicy  ```  add a Check next to ** AmazonEKSServicePolicy**  then ``` Attach policy```  
 
-
+.
 
 </details>
 
