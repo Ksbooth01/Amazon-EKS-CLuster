@@ -35,10 +35,9 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 
 <details>
   <summary> Create Worker Nodes </summary>
-3.  ($0.20/hr)
+4.      (hourly cost of runnings the ec2 servers)
      * Sub bullets
 </details>
 
-Build a Amazon EKS Cluster   
-4.      (hourly cost of runnings the ec2 servers)
+  
 
