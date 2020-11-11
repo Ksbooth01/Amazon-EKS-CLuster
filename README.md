@@ -62,7 +62,17 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
   **Estimated Cost:**  your basically charged for them when they aren't attached to any running worker nodes.
                  $0.005 per IP address associated with a running instance per hour on a pro rata basis
                  
-     
+   #### Steps to Crete the EKS Cluster
+   * On the AWS Console got to Elastic Kubernetes Services - https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/home
+   * At Create EKS cluster enter you cluster name ```  Next Step ```
+   1. Cluster Configuration 
+      * Pick the Kubernetes Version  ``` 1.18 ```
+      * Cluster Service Role   ``` <Project>-eksrole ```
+   2. Networking
+     * VPC info  - Pick the VPC you made in step #1
+     * Subnets - Pick all three of the subnets created with the VPC
+     * leave **Public** for Cluctere endpoint access
+     * ``` Next ```  ``` Next ```  ``` Create ``` 
      
 </details>
 
