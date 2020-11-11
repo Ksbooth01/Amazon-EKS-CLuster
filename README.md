@@ -5,7 +5,7 @@ What this builds...
 
 ## Main Steps
 <details>
-  <summary> **Build out the an Amazon PVC** </summary>
+  <summary> <B> Build out the an Amazon PVC </B></summary>
   
   ## Heading
 ## Build a VPC for EKS
