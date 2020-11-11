@@ -35,7 +35,8 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 
 <details>
   <summary> Create Worker Nodes </summary>
-**Estimated Cost** -  hourly cost of running the ec2 servers
+#### Estimated Cost -  hourly cost of running the ec2 servers
+
 [Check here!](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#gpu-ami) to ensure you are using appropriate versions 
 
 The AWS CloudFormation node template:  
