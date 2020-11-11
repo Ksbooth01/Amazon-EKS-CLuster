@@ -1,13 +1,12 @@
 # Amazon-EKS-CLuster
 
 What this builds...
-
+![Image of Yaktocat](images/EKS-Cluster-VPC.PNG)
 
 ## Main Steps
 <details>
-  <summary> <B> Build out the an Amazon PVC </B></summary>
+  <summary> Build out the an Amazon VPC </summary>
   
-  ## Heading
 ## Build a VPC for EKS
 
 [Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-sample.yaml) 
