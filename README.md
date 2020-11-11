@@ -27,11 +27,12 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 
 <details>
   <summary> 2. Create IAM Role for EKS </summary>
-#### In this Section we Create an IAM ROLE to manage EKS service access
+  
+ #### In this Section we Create an IAM ROLE to manage EKS service access
  **Estimated Cost:**  not really any here. 
 * Open the IAM console at https://console.aws.amazon.com/iam/ .
-* Choose Roles, then ``` Create role ```.
-* Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then ``` Next: Permissions ``` .
+* Choose Roles, then ``` Create role ``` .
+* Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions ``` .
 * Choose  ``` Next: Tags ```  ``` Next: Review ``` 
 * Enter **Role name** <Your EKS Role Name>  and then ``` Create role ```
   
