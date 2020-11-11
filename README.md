@@ -57,7 +57,7 @@ US West (N. California) (us-west-1)	| ami-002e04ca6d86d255e |
 
 </details>
 
-| Kubernetes version 1.17.11 |
+| Kubernetes version 1.17.11 | |
 |:------------------------------------|:--:|
 | Region	| x86- AMI ID	 |
 | US East (Ohio) (us-east-2)          | ami-0135903686f192ffe	|
