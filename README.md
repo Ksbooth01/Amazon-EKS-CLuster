@@ -4,7 +4,7 @@
 
 ## Main Steps
 <details>
-  <summary> Build out the an Amazon VPC </summary>
+  <summary> 1. Build out the an Amazon VPC </summary>
   
 ## Build a VPC for EKS using AWS EKS VPC Sample template
 What this section builds using AWS Cloudformation...
