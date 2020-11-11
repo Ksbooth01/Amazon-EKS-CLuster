@@ -19,7 +19,7 @@ What this section builds using AWS Cloudformation...
 ```
     https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml
 ```
-* Enter a **Stack Name** like  /<EKS-sample-vpc/>    ``` Next ```      ``` Next ```     ``` Create Stack ```
+* Enter a **Stack Name** like  \<EKS-sample-vpc\>    ``` Next ```      ``` Next ```     ``` Create Stack ```
 
 to check that this is the latest verion of the template [Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml) 
 </details>
