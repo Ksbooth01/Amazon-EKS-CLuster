@@ -71,7 +71,17 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
   
   **Estimated Cost:** Hourly cost of running the ec2 servers
 
-  [Check here!](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#gpu-ami) to ensure you are using appropriate versions 
+#### This section builds woker nodes in the VPC using a Cloudformation Script,  then attaches them to the EKS CLuster
+
+* Open the IAM console at https://console.aws.amazon.com/cloudformation/home?region=us-east-2#
+
+(you choose whatever region you want - I chose Ohio)
+* Choose **Create stack**
+* On the create a stack page, find **Amazon S3 URL*** adn enter the URL below & next
+* Enter a Stack Name ```   EKS-sample-vpc    ``` ``` Next ```   ``` Next ```  ``` Create Stack ```
+
+
+  [Check here!](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#gpu-ami) to see if this is still the most current version 
 
   The AWS CloudFormation node template:  
 
