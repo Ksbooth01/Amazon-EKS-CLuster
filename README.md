@@ -8,36 +8,31 @@ What this builds...
   <summary> **Build out the an Amazon PVC** </summary>
   
   ## Heading
-## Build a VPC
-[Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-sample.yaml) 
+## Build a VPC for EKS
 
+[Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-sample.yaml) 
 ```
 https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-sample.yaml
 ```
 
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
 </details>
 
 <details>
   <summary> 2. Create IAM Role for EKS </summary>
 
- **Estimated Cost:**  none
+ **Estimated Cost:**  not really any here. 
 * Open the IAM console at https://console.aws.amazon.com/iam/ .
 * Choose Roles, then Create role .
 * Choose EKS from the list of services, then EKS - Cluster for your use case, and then Next: Permissions .
 * Choose Next: Tags .
  * (Optional) Add metadata to the role by attaching tags as key–value pairs. For more information about using tags in...
-     
-</details>
 
 
 </details>
+
 
 <details>
-  <summary> Install **Kubectl**</summary>
+  <summary> 3. Install Kubectl </summary>
 
      * Sub bullets
 </details>
@@ -52,8 +47,19 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
   
 </details>
 
+
 <details>
-  <summary> 5. Create Worker Nodes </summary>
+  <summary> 5. Create Elastic IPs for you worker Nodes </summary>
+
+  **Estimated Cost:**  your basically charged for them when they aren't attached to any running worker nodes.
+                 $0.005 per IP address associated with a running instance per hour on a pro rata basis
+                 
+     
+     
+</details>
+
+<details>
+  <summary> 6. Create Worker Nodes </summary>
   
   **Estimated Cost:** Hourly cost of running the ec2 servers
 
@@ -81,6 +87,10 @@ US West (N. California) (us-west-1)	| ami-002e04ca6d86d255e |
 | US East (N. Virginia) (us-east-1)   |	ami-07250434f8a7bc5f1 |
 | US West (Oregon) (us-west-2)	      | ami-0c62450bce8f4f57f |
 | US West (N. California) (us-west-1)	| ami-05bfd72ad17ebedb8 | 
+
+###  Filling out the form:
+The **ClusterName** in your node AWS CloudFormation template must **exactly match** the name of the cluster you want your nodes to join
+
 
 **TROUBLESHOOTING** the cloudformation script (because you do everything perfectly - everytime!)
 * The node is not tagged as being owned by the cluster. Your nodes must have the following tag applied to them, where <cluster-name> is replaced with the name of your cluster.
