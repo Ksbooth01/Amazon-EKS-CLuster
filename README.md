@@ -34,13 +34,16 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 * Choose Roles, then ``` Create role ``` .
 * Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions ``` .
 * Choose  ``` Next: Tags ```  ``` Next: Review ``` 
-* Enter **Role name** "Your EKS Role Name"  and then ``` Create role ```
+* Enter **Role name** \<Your EKS Role Name\>  and then ``` Create role ```
+  
   
 * Choose \<Your EKS Role Name\>
 * Choose ``` Attach Policies ```
-Add permissions to "Your EKS Role Name"
+Add permissions to \<**Your EKS Role Name**\>
 * Filter policies for  ``` AmazonEKSServicePolicy  ```  add a Check next to ** AmazonEKSServicePolicy**  then ``` Attach policy```  
-  
+
+
+
 </details>
 
 
@@ -62,7 +65,7 @@ Add permissions to "Your EKS Role Name"
    * At __Create EKS cluster__ enter your cluster name <EKS-Cluster>, then   ```  Next Step ```
    1. Cluster Configuration 
       * Pick the Kubernetes Version  ``` 1.18 ```
-      * Cluster Service Role   ``` <Project>-eksrole ```
+      * Cluster Service Role   ``` \<Project\>-eksrole ```
    2. Networking
      * VPC info  - Pick the VPC you made in step #1
      * Subnets - Pick all three of the subnets created with the VPC
