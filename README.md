@@ -22,28 +22,48 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 </details>
 
 <details>
+  <summary> 2. Create IAM Role for EKS </summary>
+
+ **Estimated Cost:**  none
+* Open the IAM console at https://console.aws.amazon.com/iam/ .
+* Choose Roles, then Create role .
+* Choose EKS from the list of services, then EKS - Cluster for your use case, and then Next: Permissions .
+* Choose Next: Tags .
+ * (Optional) Add metadata to the role by attaching tags as key–value pairs. For more information about using tags in...
+     
+</details>
+
+
+</details>
+
+<details>
   <summary> Install **Kubectl**</summary>
 
      * Sub bullets
 </details>
 
 <details>
-  <summary> Build a Amazon EKS Cluster </summary>
-3.  ($0.20/hr)
-     * Sub bullets
+  <summary> 4. Build a Amazon EKS Cluster </summary>
+  
+  **Estimated Cost:**  $0.20/hr
+  
+  * Log into the AWS Console
+ 
+  
 </details>
 
 <details>
-  <summary> Create Worker Nodes </summary>
-#### Estimated Cost -  hourly cost of running the ec2 servers
+  <summary> 5. Create Worker Nodes </summary>
+  
+  **Estimated Cost:** Hourly cost of running the ec2 servers
 
-[Check here!](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#gpu-ami) to ensure you are using appropriate versions 
+  [Check here!](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html#gpu-ami) to ensure you are using appropriate versions 
 
-The AWS CloudFormation node template:  
-```
-https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-10-29/amazon-eks-nodegroup.yaml  
-```
+  The AWS CloudFormation node template:  
 
+  ```
+  https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-10-29/amazon-eks-nodegroup.yaml  
+  ```
 
 |Kubernetes version 1.18.8  | x86 |
 |:------------------------------------|:--|
@@ -62,7 +82,20 @@ US West (N. California) (us-west-1)	| ami-002e04ca6d86d255e |
 | US West (Oregon) (us-west-2)	      | ami-0c62450bce8f4f57f |
 | US West (N. California) (us-west-1)	| ami-05bfd72ad17ebedb8 | 
 
+**TROUBLESHOOTING** the cloudformation script (because you do everything perfectly - everytime!)
+* The node is not tagged as being owned by the cluster. Your nodes must have the following tag applied to them, where <cluster-name> is replaced with the name of your cluster.
+  
 
+|Key	|Value|
+|:-|:-|
+|kubernetes.io/cluster/<cluster-name> | owned|
+
+
+* The nodes may not be able to access the cluster using a public IP address. Ensure that nodes deployed in public subnets are assigned a public IP address. If not, you can associate an elastic IP address to a node after it's launched.
+
+If you STILL have problems go [Here](https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html)
+
+  
 
 </details>
 
