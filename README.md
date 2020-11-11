@@ -1,19 +1,28 @@
 # Amazon-EKS-CLuster
 
-What this builds...
-![Image of Yaktocat](images/EKS-Cluster-VPC.PNG)
+
 
 ## Main Steps
 <details>
   <summary> Build out the an Amazon VPC </summary>
   
 ## Build a VPC for EKS
+What this section builds...
 
-[Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-sample.yaml) 
-```
-https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-sample.yaml
-```
+![Image of Yaktocat](images/EKS-Cluster-VPC.PNG)
 
+* Open the IAM console at https://console.aws.amazon.com/cloudformation/home?region=us-east-2#
+  (you choose whatever region you want - I chose Ohio)
+  * Choose **Create stack**
+  * On the create a stack page, find **Amazon S3 URL*** adn enter the URL below & next
+  * Enter a Stack Name ```   EKS-sample-vpc    ``` Next, Next, Create Stack
+
+
+[Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml) 
+```
+https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml
+
+```
 </details>
 
 <details>
