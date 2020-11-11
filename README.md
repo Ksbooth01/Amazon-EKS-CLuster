@@ -30,10 +30,12 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
 
  **Estimated Cost:**  not really any here. 
 * Open the IAM console at https://console.aws.amazon.com/iam/ .
-* Choose Roles, then Create role .
-* Choose EKS from the list of services, then EKS - Cluster for your use case, and then Next: Permissions .
-* Choose Next: Tags .
- * (Optional) Add metadata to the role by attaching tags as key–value pairs. For more information about using tags in...
+* Choose Roles, then ``` Create role ```.
+* Choose **EKS** from the list of services, then **EKS - Cluster** for your use case, and then ``` Next: Permissions ``` .
+* Choose  ``` Next: Tags ``` ``` Next: Review ``` 
+* Enter **Role name \***
+
+* (Optional) Add metadata to the role by attaching tags as key–value pairs. For more information about using tags in...
 
 
 </details>
@@ -54,7 +56,7 @@ https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-e
  
    * Log into the AWS Console
    * On the AWS Console go to Elastic Kubernetes Services - https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/home
-   * At Create EKS cluster enter you cluster name ```  Next Step ```
+   * At __Create EKS cluster__ enter your cluster name <EKS-Cluster>, then   ```  Next Step ```
    1. Cluster Configuration 
       * Pick the Kubernetes Version  ``` 1.18 ```
       * Cluster Service Role   ``` <Project>-eksrole ```
