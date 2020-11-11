@@ -13,16 +13,15 @@ What this section builds using AWS Cloudformation...
 
 * Open the IAM console at https://console.aws.amazon.com/cloudformation/home?region=us-east-2#
 
-(you choose whatever region you want - I chose Ohio)
+      (you choose whatever region you want - I chose Ohio)
 * Choose **Create stack**
 * On the create a stack page, find **Amazon S3 URL*** adn enter the URL below & next
+```
+    https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml
+```
 * Enter a Stack Name ```   EKS-sample-vpc    ``` ``` Next ```   ``` Next ```  ``` Create Stack ```
 
-[Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml) 
-```
-https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml
-
-```
+to check that this is the latest verion of the template [Amazon EKS Cloudformation VPC template](https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-vpc-sample.yaml) 
 </details>
 
 <details>
@@ -84,13 +83,15 @@ Add permissions to \<**Your EKS Role Name**\>
   
   **Estimated Cost:** Hourly cost of running the ec2 servers
 
-#### This section builds woker nodes in the VPC using a Cloudformation Script,  then attaches them to the EKS CLuster
+#### This section builds worker nodes in the VPC using a Cloudformation Script,  then attaches them to the EKS CLuster
 
 * Open the IAM console at https://console.aws.amazon.com/cloudformation/home?region=us-east-2#
-
-(you choose whatever region you want - I chose Ohio)
 * Choose **Create stack**
-* On the create a stack page, find **Amazon S3 URL*** adn enter the URL below & next
+* On the create a stack page, find **Amazon S3 URL*** and enter the URL below & next
+```
+  https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-10-29/amazon-eks-nodegroup.yaml  
+```
+
 * Enter a Stack Name ```   EKS-sample-vpc    ``` ``` Next ```   ``` Next ```  ``` Create Stack ```
 
 
@@ -98,10 +99,7 @@ Add permissions to \<**Your EKS Role Name**\>
 
   The AWS CloudFormation node template:  
 
-  ```
-  https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-10-29/amazon-eks-nodegroup.yaml  
-  ```
-
+  
 |Kubernetes version 1.18.8  | x86 |
 |:------------------------------------|:--|
 | Region	|  AMI ID	 |
