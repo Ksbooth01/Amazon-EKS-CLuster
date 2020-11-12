@@ -43,6 +43,7 @@ Add permissions to \<**Your EKS Role Name**\>
   <details>
   <summary> <B> Create an EKS service role (AWS CLI)</B> </summary>
  
+ You can also do this in a single step using the AWS CLI instead of the AWS Console:
 ```sh
 # get your account ID
 ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
