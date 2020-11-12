@@ -43,17 +43,13 @@ Add permissions to \<**Your EKS Role Name**\>
   <details>
   <summary> <B> Create an EKS service role (AWS CLI)</B> </summary>
  
-
+<html>
   # get your account ID
-```
-    ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
-```
+  ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
   # define a role trust policy that opens the role to users in your account (limited by IAM policy)
-```  
   POLICY=$(echo -n '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::'; echo -n "$ACCOUNT_ID"; echo -n ':root"},"Action":"sts:AssumeRole","Condition":{}}]}')
-```
-```
-```
+</html>
+
 # create a role named KubernetesAdmin (will print the new role's ARN)
 
 aws iam create-role \
