@@ -46,18 +46,44 @@ Add permissions to \<**Your EKS Role Name**\>
 
 
 <details>
-  <summary> 3. Installing & configuring Kubectl for EKS </summary>
+  <summary> 3. Installing <B>Kubectl</B> and <B>AWS IAM authenticator </B>for EKS </summary>
 
   <details><summary> For <B>linux</B> Systems </summary>
 
 ```
+To download kubectl and set it up for use...
 {
   mkdir $HOME/bin
-  curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14/bin/linux/amd64/kubectl
+  curl -O kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14/bin/linux/amd64/kubectl
   chmod +x .kubectl $HOME/bin/kubectl
   export PATH=$HOME/bin:$PATH
   echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 }
+```
+
+### Install AWS IAM authenticator for Kubernetes. 
+
+A tool to use AWS IAM credentials to authenticate to a Kubernetes cluster. If you are building a Kubernetes installer on AWS, AWS IAM Authenticator for Kubernetes can simplify your bootstrap process. You won't need to somehow smuggle your initial admin credential securely out of your newly installed cluster. Instead, you can create a dedicated ```KubernetesAdmin``` role at cluster provisioning time and set up Authenticator to allow cluster administrator logins.
+
+```
+{
+  curl -O  aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14/bin/linux/amd64/aws-iam-authenticator
+  chmod +x .aws-iam-authenticator $HOME/bin/aws-iam-authenticator 
+  aws-iam-authenticator help
+}
+```
+### Update AWS CLI to the latest version direct from AWS
+1. Pull down pip installer
+
+```
+python get-oio.py -user
+pip install awscli --upgrade --user
+export PATH=$HOME/.local/bin:$PATH
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bshrc
+aws eks update-kubeconfig --name <clustername>
+kubectl config view
+kubectl get svc
+  
 ```
 
   </details>
@@ -69,13 +95,15 @@ Enter the following URL into a browser to download the kubectl.exe file
 ```
   https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.9/2019-03-27/bin/windows/amd64/kubectl.exe
 ```
-
+![source - https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html#install-iam-authenticator-windows]
   </details>
 
 
   <details><summary> For Apple systems  </summary>
 
+
 **Yea Right!** - Like I'd give directions on how to do this on a MAC
+
 
   </details>
 </details>
