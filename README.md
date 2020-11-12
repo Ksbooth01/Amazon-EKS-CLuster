@@ -1,4 +1,4 @@
-# Amazon-EKS-CLuster-Buildout instructions
+# Amazon-EKS-Cluster-Buildout instructions
 
 
 
