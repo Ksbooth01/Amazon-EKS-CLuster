@@ -50,13 +50,16 @@ Add permissions to \<**Your EKS Role Name**\>
 
   <details><summary> For linux  </summary>
 
+```
 {
-  mkdir $HOME/bin
-  https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14//bin/linux/amd64/kubectl
-  chmod +x .kubectl $HOME/bin/kubectl
-  export PATH=$HOME/bin:$PATH
-  echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+mkdir $HOME/bin
+https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14//bin/linux/amd64/kubectl
+chmod +x .kubectl $HOME/bin/kubectl
+export PATH=$HOME/bin:$PATH
+echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 }
+```
+
   </details>
 
 
