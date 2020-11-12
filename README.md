@@ -40,9 +40,11 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 Add permissions to \<**Your EKS Role Name**\>
 * Filter policies for  ``` AmazonEKSServicePolicy  ```  add a Check next to ** AmazonEKSServicePolicy**  then ``` Attach policy```  
 
+  </details>
+ 
   <details>
   <summary> <B> Create an EKS service role (AWS CLI)</B> </summary>
-  </details>
+ 
 
   ```
   # get your account ID
