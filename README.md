@@ -48,22 +48,36 @@ Add permissions to \<**Your EKS Role Name**\>
 <details>
   <summary> 3. Installing & configuring Kubectl for EKS </summary>
 
-  <details><summary> For linux  </summary>
+  <details><summary> For <B>linux</B> Systems </summary>
 
 ```
 {
-mkdir $HOME/bin
-https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14//bin/linux/amd64/kubectl
-chmod +x .kubectl $HOME/bin/kubectl
-export PATH=$HOME/bin:$PATH
-echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+  mkdir $HOME/bin
+  curl -O https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14/bin/linux/amd64/kubectl
+  chmod +x .kubectl $HOME/bin/kubectl
+  export PATH=$HOME/bin:$PATH
+  echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 }
 ```
 
   </details>
 
 
+  <details><summary> For <B>Windows</B> systems  </summary>
 
+Enter the following URL into a browser to download the kubectl.exe file 
+```
+  https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.9/2019-03-27/bin/windows/amd64/kubectl.exe
+```
+
+  </details>
+
+
+  <details><summary> For Apple systems  </summary>
+
+**Yea Right!** - Like I'd give directions on how to do this on a MAC
+
+  </details>
 </details>
 
 
