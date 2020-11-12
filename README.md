@@ -4,7 +4,7 @@
 
 ## Main Steps
 <details>
-  <summary> 1. Build out the an Amazon VPC </summary>
+  <summary> 1. Create an Amazon VPC infrastructure with Cloudformation </summary>
   
 ## Build a VPC for EKS using AWS EKS VPC Sample template
 What this section builds using AWS Cloudformation...
@@ -25,7 +25,7 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 </details>
 
 <details>
-  <summary> 2. Create IAM Role for EKS </summary>
+  <summary> 2. Create an EKS service role (AWS Console)</summary>
   
  #### In this Section we Create an IAM ROLE to manage EKS service access
  **Estimated Cost:**  not really any here. 
@@ -46,13 +46,14 @@ Add permissions to \<**Your EKS Role Name**\>
 
 
 <details>
-  <summary> 3. Install Kubectl </summary>
+  <summary> 3. Installing & configuring Kubectl for EKS </summary>
 
      * Sub bullets
 </details>
 
+
 <details>
-  <summary> 4. Build a Amazon EKS Cluster </summary>
+  <summary> 4. Build a Amazon EKS Cluster (AWS Management Console)</summary>
   
   **Estimated Cost:**  $0.20/hr while running
                  
