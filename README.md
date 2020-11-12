@@ -43,28 +43,24 @@ Add permissions to \<**Your EKS Role Name**\>
   <details>
   <summary> <B> Create an EKS service role (AWS CLI)</B> </summary>
  
-<html>
-  # get your account ID  
-  ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')   
-  # define a role trust policy that opens the role to users in your account (limited by IAM policy)
-  POLICY=$(echo -n '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::'; echo -n "$ACCOUNT_ID"; echo -n ':root"},"Action":"sts:AssumeRole","Condition":{}}]}') 
+```sh
+# get your account ID
+ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
 
-  # create a role named KubernetesAdmin (will print the new role's ARN)
+# define a role trust policy that opens the role to users in your account (limited by IAM policy)
+POLICY=$(echo -n '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::'; echo -n "$ACCOUNT_ID"; echo -n ':root"},"Action":"sts:AssumeRole","Condition":{}}]}')
 
+# create a role named KubernetesAdmin (will print the new role's ARN)
 aws iam create-role \
   --role-name KubernetesAdmin \
   --description "Kubernetes administrator role (for AWS IAM Authenticator for Kubernetes)." \
   --assume-role-policy-document "$POLICY" \
   --output text \
   --query 'Role.Arn'
-
-</html>
-
+```
   </details>
 
 </details>
-
-
 
 <details>
   <summary> 3. Installing <B>Kubectl</B> and <B>AWS IAM authenticator </B>for EKS </summary>
