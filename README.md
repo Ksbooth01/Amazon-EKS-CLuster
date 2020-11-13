@@ -193,19 +193,21 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
    #### Steps to Create the EKS Cluster
  
    * Log into the AWS Console
-   * On the AWS Console go to Elastic Kubernetes Services - https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/home
+   * On the AWS Console go to [Elastic Kubernetes Services](https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/home)
    * At __Create EKS cluster__ enter your cluster name <EKS-Cluster>, then   ```  Next Step ```
    1. Cluster Configuration 
-      * Pick the Kubernetes Version  ``` 1.18 ```
-      * Cluster Service Role   ``` <Project>-eksrole ```
+      + Pick the Kubernetes Version  ``` 1.18 ```
+      + Cluster Service Role   ``` Project-eksrole ```
    2. Networking
-     * VPC info  - Pick the VPC you made in step \#1
-     * Subnets - Pick all three of the subnets created with the VPC
-     * leave **Public** for Cluctere endpoint access
-     * ``` Next ```  ``` Next ```  ``` Create ``` 
+  
+     + **VPC info**  Pick the VPC you made in step \#1
+     + **Subnets**  Pick all three of the subnets created with the VPC
+     + leave **Public** for Cluster endpoint access
+     + ``` Next ```  ``` Next ```  ``` Create ``` 
+
 
   <details>
-    <summary> Create the EKS Cluster using eksctl </summary>
+    <summary> Create the EKS Cluster using <B>eksctl</B> </summary>
   some stuffs gotta be here
     <details>
       <summary> Install eksctl on windows </summary>
