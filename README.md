@@ -34,8 +34,7 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 * Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions ``` .
 * Choose  ``` Next: Tags ```  ``` Next: Review ``` 
 * Enter **Role name** \<Your EKS Role Name\>  and then ``` Create role ``
-*
-* On tole Rolse main page Choose the newly created \<Your EKS Role Name\>
+* On the Roles main page Choose the newly created \<Your EKS Role Name\>
 * Choose ``` Attach Policies ```
 Add permissions to \<**Your EKS Role Name**\>
 * Filter policies for  ``` AmazonEKSServicePolicy  ```  add a Check next to ** AmazonEKSServicePolicy**  then ``` Attach policy```  
