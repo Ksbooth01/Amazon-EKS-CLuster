@@ -1,9 +1,17 @@
 # Amazon-EKS-Cluster-Buildout instructions
 
+<details>
+  <summary> <B>test</B> </summary>
+* a random bullet
+ <details><p style="margin-left:2.5em">
+   <summary> <B>dropdown-2</B> </summary>
+ 
+  </p></details>
+</details>
 
 
 ## Main Steps
- <details>&nbsp;
+ <details>
   <summary> 1. Create an Amazon VPC infrastructure with Cloudformation </summary>
   
 #### Build a VPC for EKS using AWS EKS VPC Sample template
@@ -67,7 +75,8 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   <summary> 3. Installing <B>Kubectl</B> and <B>AWS IAM authenticator </B>for EKS </summary>
 
 
-  <details><summary> For <B>linux</B> Systems </summary>
+  <details>
+    <summary> For <B>linux</B> Systems </summary>
 
   #### To install kubectl on linux systems
   **Kubernetes 1.18**
