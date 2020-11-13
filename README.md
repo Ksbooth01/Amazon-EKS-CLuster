@@ -25,39 +25,40 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 </details>
 
 <details>
-  <summary> 2. Create an EKS service role (AWS Console)</summary>
+  <summary> 2. Create an EKS service role </summary>
   
  #### In this Section we Create an IAM ROLE to manage EKS service access
  **Estimated Cost:**  not really any here. 
 * Open the IAM console at https://console.aws.amazon.com/iam/ .
-* Choose Roles, then ``` Create role ``` .
-* Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions ``` .
-* Choose  ``` Next: Tags ```  ``` Next: Review ``` 
+* Choose Roles, then **``` Create role ```** .
+* Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions``` .
+* Choose  ``` Next: Tags ``` , ``` Next: Review ``` 
 * Enter **Role name** \<Your EKS Role Name\>  and then ``` Create role ``
 * On the Roles main page Choose the newly created \<Your EKS Role Name\>
-* Choose ``` Attach Policies ```
-Add permissions to \<**Your EKS Role Name**\>
+* Choose ``` Attach Policies ```. Add permissions to \<**Your EKS Role Name**\>
 * Filter policies for  ``` AmazonEKSServicePolicy  ```  add a Check next to ** AmazonEKSServicePolicy**  then ``` Attach policy```  
 
   <details>
   <summary> <B> Create an EKS service role (AWS CLI)</B> </summary>
  
- You can also do this in a single step using the AWS CLI instead of the AWS Console:
-```sh
-# get your account ID
-ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
+  You cnado this in a single step using the AWS CLI instead of the AWS Console:
 
-# define a role trust policy that opens the role to users in your account (limited by IAM policy)
-POLICY=$(echo -n '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::'; echo -n "$ACCOUNT_ID"; echo -n ':root"},"Action":"sts:AssumeRole","Condition":{}}]}')
+  ```sh
+  # get your account ID
+  ACCOUNT_ID=$(aws sts get-caller-identity --output text --query 'Account')
 
-# create a role named KubernetesAdmin (will print the new role's ARN)
-aws iam create-role \
-  --role-name KubernetesAdmin \
-  --description "Kubernetes administrator role (for AWS IAM Authenticator for Kubernetes)." \
-  --assume-role-policy-document "$POLICY" \
-  --output text \
-  --query 'Role.Arn'
-```
+  # define a role trust policy that opens the role to users in your account (limited by IAM policy)
+  POLICY=$(echo -n '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::'; echo -n "$ACCOUNT_ID"; echo -n     ':root"},"Action":"sts:AssumeRole","Condition":{}}]}')
+
+  # create a role named KubernetesAdmin (will print the new role's ARN)
+  aws iam create-role \
+    --role-name KubernetesAdmin \
+    --description "Kubernetes administrator role (for AWS IAM Authenticator for Kubernetes)." \
+    --assume-role-policy-document "$POLICY" \
+    --output text \
+    --query 'Role.Arn'
+  ```
+
   </details>
 
 </details>
