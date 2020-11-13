@@ -206,10 +206,10 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
      * ``` Next ```  ``` Next ```  ``` Create ``` 
 
   <details>
-    <summary> Create the EKS Cluster using <B>eksctl</B> </summary>
-
-  <details>
-    <summary> Install eksctl on windows </summary>
+    <summary> Create the EKS Cluster using eksctl </summary>
+  some stuffs gotta be here
+    <details>
+      <summary> Install eksctl on windows </summary>
 
   **To install or upgrade eksctl on Windows using Chocolatey**
 
@@ -229,12 +229,9 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   ```
   eksctl version
   ```
-
+   
     </details>
-
   </details>
-
-
 </details>
 
 
