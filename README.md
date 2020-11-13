@@ -120,10 +120,11 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   1. Downloads the kubectl.exe executable 
   2. If needed, it creates a new ``` bin``` directory for your kubernetes command line binaries in the currently logged on users home directory. 
   3. Copy the ```kubectl.exe``` executable the ```bin``` directory.
-  4. If needed, appends system PATH environment variable with the bin directory and adds the directory if it's NEW.
+  4. If needed, appends system PATH environment variable with the bin directory and adds the directory if it's missing from the path.
   ```
   curl -o kubectl.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/windows/amd64/kubectl.exe
-  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Make it if it does not
+  
+  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. create bin if it does not
   Move-Item .\kubectl.exe .\bin\
   $newPath = $Env:HOMEPATH+'\bin'
   if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH + '\bin')).Replace("\","_"))) {
@@ -144,13 +145,14 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   * Open a PowerShell terminal window and download the Amazon EKS vended aws-iam-authenticator binary from Amazon S3 using the command that corresponds to the Region that your cluster is in.
   * The PowerShell script does the following:
   1. Downloads the aws-iam-authenticator command line binaries 
-  2. Creates a new ``` bin``` directory for your kubernetes command line binaries in the currently logged on users home directory. 
+  2. If needed, it creates a new ``` bin``` directory for your kubernetes command line binaries in the currently logged on users home directory. 
   3. Copy the ```aws-iam-authenticator.exe``` binary to your new directory.
-  4. Edits your user or system PATH environment variable and adds the directory to your PATH only if it's NEW.
-
+  4. If needed, appends system PATH environment variable with the bin directory and adds the directory if it's missing from the path.
+  
   ```
   curl -o aws-iam-authenticator.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/windows/amd64/aws-iam-authenticator.exe
-  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Make it if it does not
+ 
+  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Create bin if it does not
   Move-Item .\aws-iam-authenticator.exe .\bin\
   $newPath = $Env:HOMEPATH+'\bin'
   if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH + '\bin')).Replace("\","_"))) {
