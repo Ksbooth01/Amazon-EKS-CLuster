@@ -97,7 +97,9 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   }
   ```
 
-  ### Update AWS CLI to the latest version direct from AWS
+  #### Configure kubectl for EKS 
+  
+  Update AWS CLI to the latest version direct from AWS
   1. Pull down pip installer
 
     ```
@@ -166,6 +168,15 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   ```
   aws-iam-authenticator help
   ```
+  #### Configure kubectl for EKS 
+  Update AWS CLI to the latest version direct from AWS
+      Download and run the MSI installer at [https://awscli.amazonaws.com/AWSCLIV2.msi](https://awscli.amazonaws.com/AWSCLIV2.msi)
+  From a powershell command prompt enter the following:
+  ```
+  aws eks update-kubeconfig -name <cluster name>
+  kubectl config view
+  kubectl get svc
+  ```
 
   </details>
   
@@ -193,7 +204,40 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
      * Subnets - Pick all three of the subnets created with the VPC
      * leave **Public** for Cluctere endpoint access
      * ``` Next ```  ``` Next ```  ``` Create ``` 
+
+  <details>
+    <summary> Create the EKS Cluster using <B>eksctl</B> </summary>
+
+  <details>
+    <summary> Install eksctl on windows </summary>
+
+  **To install or upgrade eksctl on Windows using Chocolatey**
+
+  If you do not already have Chocolatey installed on your Windows system, see [Installing Chocolatey.](https://chocolatey.org/install)
+
+  Install or upgrade eksctl .
+
+  Install the binaries with the following command:
+  ```
+  chocolatey install -y eksctl 
+  ```
+  If they are already installed, run the following command to upgrade:
+  ```
+  chocolatey upgrade -y eksctl 
+  ```
+  Test that your installation was successful with the following command.
+  ```
+  eksctl version
+  ```
+
+    </details>
+
+  </details>
+
+
 </details>
+
+
 
 <details>
   <summary> 5. Create Elastic IPs for you worker Nodes </summary>
