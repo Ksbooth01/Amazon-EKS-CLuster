@@ -4,7 +4,7 @@
 
 ## Main Steps
 <details>
-  <summary> 1. Create an Amazon VPC infrastructure with Cloudformation </summary>
+  <summary><H3> 1. Create an Amazon VPC infrastructure with Cloudformation </H3></summary>
   
 ## Build a VPC for EKS using AWS EKS VPC Sample template
 What this section builds using AWS Cloudformation...
