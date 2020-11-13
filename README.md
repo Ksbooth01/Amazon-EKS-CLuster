@@ -68,8 +68,8 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 
   <details><summary> For <B>linux</B> Systems </summary>
 
-  #### To download kubectl and set it up for use...
-**\[ To install kubectl on Linux \]** Kubernetes 1.18
+  #### To install kubectl on linux systems
+  **Kubernetes 1.18**
   ```
   {
     mkdir $HOME/bin
@@ -180,8 +180,6 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 <details>
   <summary> 4. Build a Amazon EKS Cluster (AWS Management Console)</summary>
   
-  **Estimated Cost:**  $0.20/hr while running
-                 
    #### Steps to Create the EKS Cluster
  
    * Log into the AWS Console
@@ -200,8 +198,34 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 <details>
   <summary> 5. Create Elastic IPs for you worker Nodes </summary>
 
-  **Estimated Cost:**  your basically charged for them when they aren't attached to any running worker nodes.
-                 $0.005 per IP address associated with a running instance per hour on a pro rata basis
+#### To allocate an Elastic IP address
+**Note:** By default you're limited to 5 elastic IP's per region. 
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/.](https://console.aws.amazon.com/ec2/.)
+2. In the navigation pane, choose **Elastic IPs**.
+3. Choose **Allocate Elastic IP address**.
+4. For **Scope**, choose **VPC**.
+5. (VPC scope only) For **Public IPv4 address pool** choose one of the following:
+  * **Amazon's pool of IP addresses**—If you want an IPv4 address to be allocated from Amazon's pool of IP addresses.
+  * **My pool of public IPv4 addresses**—If you want to allocate an IPv4 address from an IP address pool that you have brought to your AWS account. This option is disabled if you do not have any IP address pools.
+  * **Customer owned pool of IPv4 addresses**—If you want to allocate an IPv4 address from a pool created from your on-premises network for use with an AWS Outpost. This option is disabled if you do not have an AWS Outpost.
+6. Choose **Allocate.**
+
+#### associate an Elastic IP address with an instance
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/.](https://console.aws.amazon.com/ec2/)
+
+2. In the navigation pane, choose **Elastic IPs.**
+
+3. Select the Elastic IP address to associate and choose **Actions, Associate Elastic IP address.**
+
+4. For **Resource type**, choose **Instance**.
+
+5. For instance, choose the instance with which to associate the Elastic IP address. You can also enter text to search for a specific instance.
+
+6. (Optional) For **Private IP address**, specify a private IP address with which to associate the Elastic IP address.
+
+7. Choose **Associate**.
 </details>
 
 <details>
