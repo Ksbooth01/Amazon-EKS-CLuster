@@ -1,13 +1,14 @@
 # Amazon-EKS-Cluster-Buildout instructions
 
-<details>
+
+<style><details>
   <summary> <B>test</B> </summary>
 * a random bullet
  <details><p style="margin-left:2.5em">
    <summary> <B>dropdown-2</B> </summary>
  
   </p></details>
-</details>
+</details></style>
 
 
 ## Main Steps
