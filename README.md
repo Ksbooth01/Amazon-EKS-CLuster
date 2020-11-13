@@ -197,12 +197,12 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
    * At __Create EKS cluster__ enter your cluster name \<EKS-Cluster\>, then   ```  Next Step ```
    1. Cluster Configuration 
       + Pick the Kubernetes Version  ``` 1.18 ```
-      + Cluster Service Role   ``` <Project>-eksrole ```
+      + Cluster Service Role   **\<Project\>-eksrole**`
    2. Networking
-     + **VPC info**  Pick the VPC you made in step #1
-     + **Subnets**  Pick all three of the subnets created with the VPC
-     + leave **Public** for Cluster endpoint access
-     + Next  Next  Create 
+      + **VPC info**  Pick the VPC you made in step #1
+      + **Subnets**  Pick all three of the subnets created with the VPC
+      + leave **Public** for Cluster endpoint access
+      +   ```Next```  ```Next```  Create 
 
 
   <details>
