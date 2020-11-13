@@ -187,7 +187,6 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   </details>
 </details>
 
-
 <details>
   <summary> 4. Build a Amazon EKS Cluster (AWS Management Console)</summary>
   
@@ -211,26 +210,26 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
     <details>
       <summary> Install eksctl on windows </summary>
 
-  **To install or upgrade eksctl on Windows using Chocolatey**
+   **To install or upgrade eksctl on Windows using Chocolatey**
 
-  If you do not already have Chocolatey installed on your Windows system, see [Installing Chocolatey.](https://chocolatey.org/install)
+   If you do not already have Chocolatey installed on your Windows system, see [Installing Chocolatey.](https://chocolatey.org/install)
 
-  Install or upgrade eksctl .
+   Install or upgrade eksctl .
 
-  Install the binaries with the following command:
-  ```
-  chocolatey install -y eksctl 
-  ```
-  If they are already installed, run the following command to upgrade:
-  ```
-  chocolatey upgrade -y eksctl 
-  ```
-  Test that your installation was successful with the following command.
-  ```
-  eksctl version
-  ```
-   
+   Install the binaries with the following command:
+    ```
+    chocolatey install -y eksctl 
+    ```
+   If they are already installed, run the following command to upgrade:
+    ```
+    chocolatey upgrade -y eksctl 
+    ```
+   Test that your installation was successful with the following command.
+    ```
+    eksctl version
+    ```
     </details>
+  more stuff here  
   </details>
 </details>
 
