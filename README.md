@@ -28,7 +28,7 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   <summary> 2. Create an EKS service role </summary>
   
  #### In this Section we Create an IAM ROLE to manage EKS service access
- **Estimated Cost:**  not really any here. 
+ 
 * Open the IAM console at https://console.aws.amazon.com/iam/ .
 * Choose Roles, then **``` Create role ```** .
 * Choose **EKS** from the list of services then **EKS - Cluster** for your use case, and then  ```Next: Permissions``` .
@@ -41,7 +41,7 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   <details>
   <summary> <B> Create an EKS service role (AWS CLI)</B> </summary>
  
-  You cnado this in a single step using the AWS CLI instead of the AWS Console:
+  You can do this in a single step using the AWS CLI instead of the AWS Console:
 
   ```sh
   # get your account ID
@@ -68,85 +68,102 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
 
   <details><summary> For <B>linux</B> Systems </summary>
 
-```
-To download kubectl and set it up for use...
-{
-  mkdir $HOME/bin
-  curl -O kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.10/2019-08-14/bin/linux/amd64/kubectl
-  chmod +x .kubectl $HOME/bin/kubectl
-  export PATH=$HOME/bin:$PATH
-  echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-}
-```
+  #### To download kubectl and set it up for use...
+**\[ To install kubectl on Linux \]** Kubernetes 1.18
+  ```
+  {
+    mkdir $HOME/bin
+    curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/amd64/kubectl
+    chmod +x .kubectl $HOME/bin/kubectl
+    export PATH=$HOME/bin:$PATH
+    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+  }
+  ```
 
-To install aws-iam-authenticator on Linux
+  #### To install aws-iam-authenticator on Linux
 
-A tool to use AWS IAM credentials to authenticate to a Kubernetes cluster. If you are building a Kubernetes installer on AWS, AWS IAM Authenticator for Kubernetes can simplify your bootstrap process. You won't need to somehow smuggle your initial admin credential securely out of your newly installed cluster. Instead, you can create a dedicated 
-```KubernetesAdmin``` role at cluster provisioning time and set up Authenticator to allow cluster administrator logins.
-
-
-1. Download the Amazon EKS vended aws-iam-authenticator binary from Amazon S3 using the command that corresponds to the Region that your cluster is in.
-
-```
-{
-  curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/linux/amd64/aws-iam-authenticator
-  chmod +x ./aws-iam-authenticator
-  cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
-  aws-iam-authenticator help
-}
-```
+  A tool to use AWS IAM credentials to authenticate to a Kubernetes cluster. If you are building a Kubernetes installer on AWS, AWS IAM Authenticator for Kubernetes can simplify your bootstrap process. You won't need to somehow smuggle your initial admin credential securely out of your newly installed cluster. Instead, you can create a dedicated 
+  ```KubernetesAdmin``` role at cluster provisioning time and set up Authenticator to allow cluster administrator logins.
 
 
-### Update AWS CLI to the latest version direct from AWS
-1. Pull down pip installer
+  Download the Amazon EKS vended aws-iam-authenticator binary from Amazon S3.
 
-```
-python get-oio.py -user
-pip install awscli --upgrade --user
-export PATH=$HOME/.local/bin:$PATH
-echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bshrc
-aws eks update-kubeconfig --name <clustername>
-kubectl config view
-kubectl get svc
-  
-```
+  ```
+  {
+    curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/linux/amd64/aws-iam-authenticator
+    chmod +x ./aws-iam-authenticator
+    cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
+    aws-iam-authenticator help
+  }
+  ```
+
+  ### Update AWS CLI to the latest version direct from AWS
+  1. Pull down pip installer
+
+    ```
+    python get-oio.py -user
+    pip install awscli --upgrade --user
+    export PATH=$HOME/.local/bin:$PATH
+    echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bshrc
+    aws eks update-kubeconfig --name <clustername>
+    kubectl config view
+    kubectl get svc
+    ```
 
   </details>
 
-
   <details><summary> For <B>Windows</B> systems  </summary>
 
-  Enter the following URL into a browser to download the kubectl.exe file 
+  ### To install kubectl on Windows
+  * Open a PowerShell terminal window and download the Amazon EKS vended kubectl binary for your cluster's Kubernetes 1.18 version from Amazon S3:
+  * The PowerShell script does the following:
+  1. Downloads the kubectl.exe executable 
+  2. If needed, it creates a new ``` bin``` directory for your kubernetes command line binaries in the currently logged on users home directory. 
+  3. Copy the ```kubectl.exe``` executable the ```bin``` directory.
+  4. If needed, appends system PATH environment variable with the bin directory and adds the directory if it's NEW.
   ```
-  https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.9/2019-03-27/bin/windows/amd64/kubectl.exe
-  ```
-  []: # (source - https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html#install-iam-authenticator-windows)
-
-
-### To install aws-iam-authenticator on Windows
-
-* Open a PowerShell terminal window and download the Amazon EKS vended aws-iam-authenticator binary from Amazon S3 using the command that corresponds to the Region that your cluster is in.
-* The script does the following:
-1. Downloads the aws-iam-authenticator command line binaries 
-2. Creates a new ``` bin``` directory for your kubernetes command line binaries in the currently logged on users home directory. 
-3. Copy the ```aws-iam-authenticator.exe``` binary to your new directory.
-4. Edits your user or system PATH environment variable and adds the directory to your PATH only if it's NEW.
-
-```
-  curl -o aws-iam-authenticator.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/windows/amd64/aws-iam-authenticator.exe
-  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir c:\users\kscot\new} # check if bin exists
-  Move-Item .\aws-iam-authenticator.exe .\bin\
+  curl -o kubectl.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/windows/amd64/kubectl.exe
+  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Make it if it does not
+  Move-Item .\kubectl.exe .\bin\
   $newPath = $Env:HOMEPATH+'\bin'
-  if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH+'\bin')).Replace("\","_"))) {
+  if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH + '\bin')).Replace("\","_"))) {
       if ($Env:path -notmatch ';\$') { $Semi=";" } else { $Semi="" }
-      Set-Item -Path Env:Path -Value ($Env:Path + $Semi+$Env:HOMEPATH  +'\bin;')  
+      Set-Item -Path Env:Path -Value ($Env:Path + $Semi + $Env:HOMEPATH + '\bin;')  
       SGet-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath 
   } 
-```
+  ```
 
-Test that the aws-iam-authenticator binary works.
+  After you install kubectl , you can verify its version with the following command:
+  ```
+  kubectl version --short --client
+  ```
+  
+  ### To install aws-iam-authenticator on Windows
+  []: # (original source - https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html#install-iam-authenticator-windows)
 
-aws-iam-authenticator help
+  * Open a PowerShell terminal window and download the Amazon EKS vended aws-iam-authenticator binary from Amazon S3 using the command that corresponds to the Region that your cluster is in.
+  * The PowerShell script does the following:
+  1. Downloads the aws-iam-authenticator command line binaries 
+  2. Creates a new ``` bin``` directory for your kubernetes command line binaries in the currently logged on users home directory. 
+  3. Copy the ```aws-iam-authenticator.exe``` binary to your new directory.
+  4. Edits your user or system PATH environment variable and adds the directory to your PATH only if it's NEW.
+
+  ```
+  curl -o aws-iam-authenticator.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/windows/amd64/aws-iam-authenticator.exe
+  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Make it if it does not
+  Move-Item .\aws-iam-authenticator.exe .\bin\
+  $newPath = $Env:HOMEPATH+'\bin'
+  if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH + '\bin')).Replace("\","_"))) {
+      if ($Env:path -notmatch ';\$') { $Semi=";" } else { $Semi="" }
+      Set-Item -Path Env:Path -Value ($Env:Path + $Semi + $Env:HOMEPATH + '\bin;')  
+      SGet-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath 
+  } 
+  ```
+
+  Test that the aws-iam-authenticator binary works.
+  ```
+  aws-iam-authenticator help
+  ```
 
   </details>
   
