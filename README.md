@@ -194,16 +194,15 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
  
    * Log into the AWS Console
    * On the AWS Console go to [Elastic Kubernetes Services](https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/home)
-   * At __Create EKS cluster__ enter your cluster name <EKS-Cluster>, then   ```  Next Step ```
+   * At __Create EKS cluster__ enter your cluster name \<EKS-Cluster\>, then   ```  Next Step ```
    1. Cluster Configuration 
       + Pick the Kubernetes Version  ``` 1.18 ```
-      + Cluster Service Role   ``` Project-eksrole ```
+      + Cluster Service Role   ``` <Project>-eksrole ```
    2. Networking
-  
-     + **VPC info**  Pick the VPC you made in step \#1
+     + **VPC info**  Pick the VPC you made in step #1
      + **Subnets**  Pick all three of the subnets created with the VPC
      + leave **Public** for Cluster endpoint access
-     + ``` Next ```  ``` Next ```  ``` Create ``` 
+     + Next  Next  Create 
 
 
   <details>
