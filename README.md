@@ -135,15 +135,16 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   3. Copy the ```kubectl.exe``` executable the ```bin``` directory.
   4. If needed, appends system PATH environment variable with the bin directory and adds the directory if it's missing from the path.
   ```
+  Set-Location $Env:HOMEPATH
   curl -o kubectl.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/windows/amd64/kubectl.exe
   
   if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. create bin if it does not
   Move-Item .\kubectl.exe .\bin\
   $newPath = $Env:HOMEPATH+'\bin'
   if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH + '\bin')).Replace("\","_"))) {
-      if ($Env:path -notmatch ';\$') { $Semi=";" } else { $Semi="" }
+      if ($Env:path -match ';\$') { $Semi=";" } else { $Semi="" }
       Set-Item -Path Env:Path -Value ($Env:Path + $Semi + $Env:HOMEPATH + '\bin;')  
-      SGet-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath 
+      Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath 
   } 
   ```
 
@@ -163,16 +164,19 @@ to check that this is the latest verion of the template [Amazon EKS Cloudformati
   4. If needed, appends system PATH environment variable with the bin directory and adds the directory if it's missing from the path.
   
   ```
-  curl -o aws-iam-authenticator.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/windows/amd64/aws-iam-authenticator.exe
+Set-Location $Env:HOMEPATH
+curl -o aws-iam-authenticator.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09-18/bin/windows/amd64/aws-iam-authenticator.exe
  
-  if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Create bin if it does not
-  Move-Item .\aws-iam-authenticator.exe .\bin\
+if (!(Test-Path $env:HOMEPATH/bin)) {mkdir $Env:HOMEPATH + '\bin'} # check if bin exists. Create bin if it does not
+  Copy-Item .\aws-iam-authenticator.exe .\bin\
   $newPath = $Env:HOMEPATH+'\bin'
   if (!(($Env:path).Replace("\","_") -match (($Env:HOMEPATH + '\bin')).Replace("\","_"))) {
-      if ($Env:path -notmatch ';\$') { $Semi=";" } else { $Semi="" }
+      if ($Env:path -match ';\$') { $Semi=";" } else { $Semi="" }
       Set-Item -Path Env:Path -Value ($Env:Path + $Semi + $Env:HOMEPATH + '\bin;')  
-      SGet-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath 
+      Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath 
   } 
+  
+  
   ```
 
   Test that the aws-iam-authenticator binary works.
